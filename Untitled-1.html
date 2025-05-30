@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brina's Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="front-page">
+    <h1>Welcome to Brian's Gallery</h1>
+    <button id="enter-button">Enter Gallery</button>
+  </div>
+
+  <div id="gallery-page">
+    <section class="gallery-section">
+      <h2>THE BRIONES ARCHIVES</h2>
+      <div class="briones-container">
+        <img src="images/bri.png" alt="Briones Archives Cover" />
+        <div class="about-me">
+          <h3>About Me</h3>
+          <p>Hi! I'm Brian, a passionate photographer who loves capturing moments that tell stories. From vibrant festivals to energetic sports events, I strive to preserve emotions through my lens. Welcome to my gallery!</p>
+        </div>
+      </div>
+    </section>
+
+    <header>
+      <h1><span>Brian’s</span> GALLERY</h1>
+    </header>
+
+    <main>
+      <section class="gallery-section">
+        <h2>OUTDOOR</h2>
+        <div class="gallery">
+          <div class="image-wrapper">
+            <div class="image-container">
+              <img src="images/outdoor2.jpg" alt="Outdoor 1" />
+              <div class="overlay">Outdoor 1</div>
+            </div>
+            <div class="caption">Courtesy of: Briones</div>
+          </div>
+
+          <div class="image-wrapper">
+            <div class="image-container">
+              <img src="images/outdoor1.jpg" alt="Outdoor 2" />
+              <div class="overlay">Outdoor 2</div>
+            </div>
+            <div class="caption">Courtesy of: Briones</div>
+          </div>
+
+          <div class="image-wrapper">
+            <div class="image-container">
+              <img src="images/outdoor3.jpg" alt="Outdoor 3" />
+              <div class="overlay">Outdoor 3</div>
+            </div>
+            <div class="caption">Courtesy of: Briones</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section">
+        <h2>SPORTS</h2>
+        <div class="gallery">
+          <div class="image-wrapper">
+            <div class="image-container">
+              <img src="images/sport1.jpg" alt="Sport 1" />
+              <div class="overlay">Sport 1</div>
+            </div>
+            <div class="caption">Courtesy of: Briones</div>
+          </div>
+
+          <div class="image-wrapper">
+            <div class="image-container">
+              <img src="images/sport2.jpg" alt="Sport 2" />
+              <div class="overlay">Sport 2</div>
+            </div>
+            <div class="caption">Courtesy of: Briones</div>
+          </div>
+
+          <div class="image-wrapper">
+            <div class="image-container">
+              <img src="images/sport3.jpg" alt="Sport 3" />
+              <div class="overlay">Sport 3</div>
+            </div>
+            <div class="caption">Courtesy of: Briones</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background: radial-gradient(circle at top, #e0eafc, #cfdef3);
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    #front-page {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #3b5998);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    #front-page.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #front-page h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      color: gold;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #enter-button {
+      padding: 1rem 2.5rem;
+      font-size: 1.3rem;
+      background-color: white;
+      color: #1a2a6c;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5);
+    }
+
+    #enter-button:hover {
+      background-color: gold;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px gold;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    #gallery-page {
+      opacity: 0;
+      display: none;
+      transition: opacity 1.5s ease;
+      padding-bottom: 3rem;
+    }
+
+    #gallery-page.show {
+      display: block;
+      opacity: 1;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #1a1a1a;
+      position: relative;
+      display: inline-block;
+    }
+
+    header h1 span {
+      font-family: 'Brush Script MT', cursive;
+      color: gold;
+      font-size: 2rem;
+    }
+
+    .gallery-section {
+      margin: 2rem auto;
+      width: 90%;
+      border-radius: 10px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      animation: fadeInSection 1.2s ease both;
+    }
+
+    @keyframes fadeInSection {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      color: #1a2a6c;
+    }
+
+    .gallery-section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: gold;
+      margin: 0.5rem auto 1.5rem;
+      border-radius: 5px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 5px gold; }
+      to { box-shadow: 0 0 20px gold; }
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .image-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      aspect-ratio: 4 / 3;
+      width: 100%;
+    }
+
+    .image-container:hover {
+      transform: scale(1.03);
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .image-container:hover .overlay {
+      opacity: 1;
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.4rem;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      user-select: none;
+    }
+
+    .briones-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .briones-container img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+
+    .about-me {
+      max-width: 400px;
+      color: #333;
+      font-family: 'Playfair Display', serif;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      line-height: 1.6;
+    }
+
+    .about-me h3 {
+      color: #b21f1f;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+  </style>
+
+  <script>
+    const enterButton = document.getElementById("enter-button");
+    const frontPage = document.getElementById("front-page");
+    const galleryPage = document.getElementById("gallery-page");
+
+    enterButton.addEventListener("click", () => {
+      frontPage.classList.add("fade-out");
+      setTimeout(() => {
+        galleryPage.classList.add("show");
+      }, 800);
+    });
+  </script>
+</body>
+</html>
